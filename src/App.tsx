@@ -1,9 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import img1 from './assets/img/1.png';
-import img2 from './assets/img/2.png';
-import img3 from './assets/img/1k.png';
-import img4 from './assets/img/2k.png';
-import img5 from './assets/img/1b.png';
 import k1 from './img/k1.PNG';
 import k2 from './img/k2.PNG';
 import k3 from './img/k3.PNG';
@@ -289,20 +284,20 @@ export default function App() {
                 <div 
                   className="w-full h-full relative cursor-pointer overflow-hidden rounded-xs animate-fadeIn"
                   onClick={() => openImageModal(
-                    '/1k.png', 
+                    '/1.png', 
                     '239 ADA · PARSEL 2–3–4 SINIRLARI', 
                     '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
                   )}
                 >
                   <img 
-                    src="/img/1.png" 
+                    src="/1.png" 
                     alt="239 Ada 2, 3, 4 Parsel Sınırları Uydu Fotoğrafı" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
-                        target.src = '/img/1k.png';
+                        target.src = '/img/1.png';
                       }
                     }}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -742,7 +737,7 @@ export default function App() {
               {/* IMAGE 1: 239 ADA · PARSEL 2–3–4 SINIRLARI */}
               <div 
                 onClick={() => openImageModal(
-                  '/1k.png', 
+                  '/1.png', 
                   '239 ADA · PARSEL 2–3–4 SINIRLARI', 
                   '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
                 )}
@@ -750,14 +745,14 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/img/1.png" 
+                    src="/1.png" 
                     alt="239 ada 2, 3, 4 parsel sınırlarını gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
-                        target.src = '/img/1b.png';
+                        target.src = '/img/1.png';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
@@ -777,7 +772,7 @@ export default function App() {
               {/* IMAGE 2: MASLAK SANAYİ SİTESİ'NE 1,13 KM */}
               <div 
                 onClick={() => openImageModal(
-                  '/2k.png', 
+                  '/2.png', 
                   "MASLAK SANAYİ SİTESİ'NE 1,13 KM", 
                   "Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü"
                 )}
@@ -792,7 +787,7 @@ export default function App() {
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
-                        target.src = '/img/2k.png';
+                        target.src = '/img/2.png';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
@@ -810,9 +805,8 @@ export default function App() {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* K1 - K10 CADASTRE & PARCEL DETAIL GALLERY */}
+          {/* K1 - K10 CADASTRE & PARCEL DETAIL GALLERY */}
           <div className="mt-16">
             <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
               <div>
