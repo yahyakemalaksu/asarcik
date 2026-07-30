@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import img1 from './assets/img/1.png'; 
-import img2 from './assets/img/2.png'; 
-import img3 from './assets/img/1k.png'; 
-import img4 from './assets/img/2k.png'; 
-import img5 from './assets/img/1b.png';
+import img1 from './img/1.PNG';
+import img2 from './img/2.PNG';
+import img3 from './img/1k.PNG';
+import img4 from './img/2k.PNG';
+import img5 from './img/1b.PNG';
 import k1 from './img/k1.PNG';
 import k2 from './img/k2.PNG';
 import k3 from './img/k3.PNG';
@@ -14,6 +14,8 @@ import k7 from './img/k7.PNG';
 import k8 from './img/k8.PNG';
 import k9 from './img/k9.PNG';
 import k10 from './img/k10.PNG';
+import v1Video from './img/v1.mp4';
+import v2Video from './img/v2.mp4';
 import { 
   MapPin, 
   Phone, 
@@ -29,7 +31,10 @@ import {
   TreePine,
   Factory,
   Compass as CompassIcon,
-  ShieldCheck
+  ShieldCheck,
+  Video,
+  Play,
+  Film
 } from 'lucide-react';
 
 interface LightboxState {
@@ -879,6 +884,102 @@ export default function App() {
                   </div>
                 </div>
               ))}
+            </div>
+          </div>
+
+          {/* V1 & V2 VIDEOS SECTION */}
+          <div className="mt-16 pt-12 border-t border-[#c6a15b]/20">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="font-serif-custom text-xl text-[#ede7d6] flex items-center gap-2">
+                  <Video size={18} className="text-[#c6a15b]" />
+                  Videolar (v1.mp4 & v2.mp4)
+                </h3>
+                <p className="text-xs text-[#a39c8a] mt-1">
+                  Parsel lokasyonları, çevre görünümleri ve arazi detaylarına ait tanıtım videoları (src/img/v1.mp4, src/img/v2.mp4)
+                </p>
+              </div>
+              <span className="font-mono-custom text-xs text-[#a39c8a] flex items-center gap-1">
+                <Film size={12} className="text-[#c6a15b]" /> 2 Video Tanıtım
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+              {/* VIDEO 1 */}
+              <div className="bg-[#1b1b15] border border-[#c6a15b]/25 hover:border-[#c6a15b] rounded-xs overflow-hidden transition-all duration-300 flex flex-col shadow-lg">
+                <div className="p-3 bg-[#141410] border-b border-[#c6a15b]/20 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Play size={14} className="text-[#c6a15b]" />
+                    <span className="font-mono-custom text-xs text-[#ede7d6] font-semibold">v1.mp4</span>
+                  </div>
+                  <span className="text-[10px] font-mono-custom bg-[#c6a15b]/15 text-[#c6a15b] px-2 py-0.5 rounded-full border border-[#c6a15b]/30">
+                    HD Video
+                  </span>
+                </div>
+                <div className="relative w-full bg-black aspect-video flex items-center justify-center">
+                  <video 
+                    controls 
+                    preload="metadata" 
+                    playsInline 
+                    className="w-full h-full object-contain"
+                  >
+                    <source src={v1Video} type="video/mp4" />
+                    <source src="/img/v1.mp4" type="video/mp4" />
+                    <source src="/v1.mp4" type="video/mp4" />
+                    <source src="src/img/v1.mp4" type="video/mp4" />
+                    Tarayıcınız video oynatmayı desteklemiyor.
+                  </video>
+                </div>
+                <div className="p-3.5 bg-[#1b1b15] flex items-center justify-between text-xs text-[#a39c8a]">
+                  <span>239 Ada Arazi & Çevre Tanıtım Videosu</span>
+                  <a 
+                    href={v1Video || '/img/v1.mp4'} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="text-[#c6a15b] hover:underline flex items-center gap-1 font-mono-custom"
+                  >
+                    Tam Ekran Aç <ExternalLink size={12} />
+                  </a>
+                </div>
+              </div>
+
+              {/* VIDEO 2 */}
+              <div className="bg-[#1b1b15] border border-[#c6a15b]/25 hover:border-[#c6a15b] rounded-xs overflow-hidden transition-all duration-300 flex flex-col shadow-lg">
+                <div className="p-3 bg-[#141410] border-b border-[#c6a15b]/20 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Play size={14} className="text-[#c6a15b]" />
+                    <span className="font-mono-custom text-xs text-[#ede7d6] font-semibold">v2.mp4</span>
+                  </div>
+                  <span className="text-[10px] font-mono-custom bg-[#c6a15b]/15 text-[#c6a15b] px-2 py-0.5 rounded-full border border-[#c6a15b]/30">
+                    HD Video
+                  </span>
+                </div>
+                <div className="relative w-full bg-black aspect-video flex items-center justify-center">
+                  <video 
+                    controls 
+                    preload="metadata" 
+                    playsInline 
+                    className="w-full h-full object-contain"
+                  >
+                    <source src={v2Video} type="video/mp4" />
+                    <source src="/img/v2.mp4" type="video/mp4" />
+                    <source src="/v2.mp4" type="video/mp4" />
+                    <source src="src/img/v2.mp4" type="video/mp4" />
+                    Tarayıcınız video oynatmayı desteklemiyor.
+                  </video>
+                </div>
+                <div className="p-3.5 bg-[#1b1b15] flex items-center justify-between text-xs text-[#a39c8a]">
+                  <span>Maslak Sanayi Sitesi & Ulaşım Aksı Videosu</span>
+                  <a 
+                    href={v2Video || '/img/v2.mp4'} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    className="text-[#c6a15b] hover:underline flex items-center gap-1 font-mono-custom"
+                  >
+                    Tam Ekran Aç <ExternalLink size={12} />
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
