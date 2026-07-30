@@ -1,0 +1,6 @@
+{
+  "name": "Asarcık Villaları",
+  "description": "Kastamonu Taşlık Mahallesi 239 Ada 2, 3, 4 parseller tanıtım ve land landing sayfası",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
