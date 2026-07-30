@@ -685,7 +685,7 @@ export default function App() {
               {/* IMAGE 1: 239 ADA · PARSEL 2–3–4 SINIRLARI */}
               <div 
                 onClick={() => openImageModal(
-                  '/img/parsel-yakin.jpg', 
+                  '/public/img/1.png', 
                   '239 ADA · PARSEL 2–3–4 SINIRLARI', 
                   '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
                 )}
@@ -693,7 +693,7 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/img/1.png" 
+                    src="/public/img/1.png" 
                     alt="239 ada 2, 3, 4 parsel sınırlarını gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
                     className="w-full h-[280px] sm:h-[320px] object-cover"
