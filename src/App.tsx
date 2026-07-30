@@ -3,6 +3,7 @@ import img1 from './assets/img/1.png';
 import img2 from './assets/img/2.png';
 import img3 from './assets/img/1k.png';
 import img4 from './assets/img/2k.png';
+import img5 from './assets/img/1b.png';
 import { 
   MapPin, 
   Phone, 
@@ -746,7 +747,7 @@ export default function App() {
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
-                        target.src = '/img/1k.png';
+                        target.src = '/img/1b.png';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
