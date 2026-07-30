@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import parselYakinImg from './assets/img/1.png';
+import sanayiUzaklikImg from './assets/img/2.png';
 import { 
   MapPin, 
   Phone, 
@@ -29,6 +31,7 @@ export default function App() {
   const [selectedParcel, setSelectedParcel] = useState<string>('Henüz karar vermedim');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [heroViewMode, setHeroViewMode] = useState<'cad' | 'satellite'>('cad');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -202,64 +205,101 @@ export default function App() {
               </div>
             </div>
 
-            {/* Interactive Vector CAD Illustration */}
-            <div className="lg:col-span-5 relative h-[380px] sm:h-[420px] bg-[#1b1b15]/60 border border-[#c6a15b]/20 rounded-xs p-4 flex flex-col justify-center items-center">
-              <div className="absolute top-3 left-3 font-mono-custom text-[11px] text-[#c6a15b] bg-[#141410]/80 px-2.5 py-1 border border-[#c6a15b]/30 rounded-xs">
-                KADASTRAL PLAN · 239 ADA
+            {/* Interactive Vector CAD & Satellite View 239 ADA */}
+            <div className="lg:col-span-5 relative h-[380px] sm:h-[420px] bg-[#1b1b15]/60 border border-[#c6a15b]/20 rounded-xs p-4 flex flex-col justify-center items-center overflow-hidden group">
+              <div className="absolute top-3 left-3 z-10 flex items-center gap-1.5 bg-[#141410]/90 p-1 border border-[#c6a15b]/30 rounded-xs">
+                <button 
+                  onClick={() => setHeroViewMode('cad')}
+                  className={`font-mono-custom text-[10px] px-2.5 py-1 rounded-xs transition-colors cursor-pointer ${heroViewMode === 'cad' ? 'bg-[#c6a15b] text-[#141410] font-semibold' : 'text-[#a39c8a] hover:text-[#ede7d6]'}`}
+                >
+                  239 ADA · PLAN
+                </button>
+                <button 
+                  onClick={() => setHeroViewMode('satellite')}
+                  className={`font-mono-custom text-[10px] px-2.5 py-1 rounded-xs transition-colors cursor-pointer ${heroViewMode === 'satellite' ? 'bg-[#c6a15b] text-[#141410] font-semibold' : 'text-[#a39c8a] hover:text-[#ede7d6]'}`}
+                >
+                  UYDU GÖRÜNTÜSÜ
+                </button>
               </div>
 
-              <svg viewBox="0 0 300 420" className="w-full h-full max-h-[360px]">
-                {/* 239/2 */}
-                <g 
-                  onClick={() => selectParcelAndScroll('239 Ada 2 Parsel (818,96 m²)')}
-                  className="cursor-pointer group"
+              {heroViewMode === 'cad' ? (
+                <svg viewBox="0 0 300 420" className="w-full h-full max-h-[360px] animate-fadeIn">
+                  {/* 239/2 */}
+                  <g 
+                    onClick={() => selectParcelAndScroll('239 Ada 2 Parsel (818,96 m²)')}
+                    className="cursor-pointer group/item"
+                  >
+                    <path 
+                      d="M148,18 L226,72 L196,148 L88,158 L54,102 Z" 
+                      className="stroke-[#c6a15b] stroke-[1.5] fill-[#c6a15b]/10 group-hover/item:fill-[#c6a15b]/25 transition-all" 
+                      strokeDasharray="4 4"
+                    />
+                    <text x="142" y="93" className="font-mono-custom text-[14px] font-medium fill-[#c6a15b] text-anchor-middle">239 / 2</text>
+                    <text x="142" y="110" className="font-mono-custom text-[10.5px] fill-[#a39c8a] text-anchor-middle">818,96 m²</text>
+                  </g>
+
+                  {/* 239/3 */}
+                  <g 
+                    onClick={() => selectParcelAndScroll('239 Ada 3 Parsel (851,28 m²)')}
+                    className="cursor-pointer group/item"
+                  >
+                    <path 
+                      d="M88,158 L196,148 L164,252 L58,258 Z" 
+                      className="stroke-[#8a7140] stroke-[1.5] fill-[#c6a15b]/10 group-hover/item:fill-[#c6a15b]/25 transition-all" 
+                      strokeDasharray="4 4"
+                    />
+                    <text x="126" y="198" className="font-mono-custom text-[14px] font-medium fill-[#c6a15b] text-anchor-middle">239 / 3</text>
+                    <text x="126" y="215" className="font-mono-custom text-[10.5px] fill-[#a39c8a] text-anchor-middle">851,28 m²</text>
+                  </g>
+
+                  {/* 239/4 */}
+                  <g 
+                    onClick={() => selectParcelAndScroll('239 Ada 4 Parsel (1.010,62 m²)')}
+                    className="cursor-pointer group/item"
+                  >
+                    <path 
+                      d="M58,258 L164,252 L122,398 Z" 
+                      className="stroke-[#c6a15b] stroke-[1.5] fill-[#c6a15b]/10 group-hover/item:fill-[#c6a15b]/25 transition-all" 
+                      strokeDasharray="4 4"
+                    />
+                    <text x="115" y="300" className="font-mono-custom text-[14px] font-medium fill-[#c6a15b] text-anchor-middle">239 / 4</text>
+                    <text x="115" y="317" className="font-mono-custom text-[10.5px] fill-[#a39c8a] text-anchor-middle">1.010,62 m²</text>
+                  </g>
+
+                  <circle cx="148" cy="18" r="3" fill="#c6a15b"/>
+                  <circle cx="226" cy="72" r="3" fill="#c6a15b"/>
+                  <circle cx="54" cy="102" r="3" fill="#c6a15b"/>
+                  <circle cx="58" cy="258" r="3" fill="#c6a15b"/>
+                  <circle cx="122" cy="398" r="3" fill="#c6a15b"/>
+                </svg>
+              ) : (
+                <div 
+                  className="w-full h-full relative cursor-pointer overflow-hidden rounded-xs animate-fadeIn"
+                  onClick={() => openImageModal(
+                    parselYakinImg || '/img/1.png', 
+                    '239 ADA · PARSEL 2–3–4 SINIRLARI', 
+                    '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
+                  )}
                 >
-                  <path 
-                    d="M148,18 L226,72 L196,148 L88,158 L54,102 Z" 
-                    className="stroke-[#c6a15b] stroke-[1.5] fill-[#c6a15b]/10 group-hover:fill-[#c6a15b]/25 transition-all" 
-                    strokeDasharray="4 4"
+                  <img 
+                    src={parselYakinImg || '/img/1.png'} 
+                    alt="239 Ada 2, 3, 4 Parsel Sınırları Uydu Fotoğrafı" 
+                    referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/img/1.png';
+                    }}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <text x="142" y="93" className="font-mono-custom text-[14px] font-medium fill-[#c6a15b] text-anchor-middle">239 / 2</text>
-                  <text x="142" y="110" className="font-mono-custom text-[10.5px] fill-[#a39c8a] text-anchor-middle">818,96 m²</text>
-                </g>
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                    <span className="bg-[#141410]/90 text-[#c6a15b] px-3.5 py-2 border border-[#c6a15b] rounded-xs font-mono-custom text-xs flex items-center gap-2">
+                      <Maximize2 size={14} /> Tam Ekran İncele
+                    </span>
+                  </div>
+                </div>
+              )}
 
-                {/* 239/3 */}
-                <g 
-                  onClick={() => selectParcelAndScroll('239 Ada 3 Parsel (851,28 m²)')}
-                  className="cursor-pointer group"
-                >
-                  <path 
-                    d="M88,158 L196,148 L164,252 L58,258 Z" 
-                    className="stroke-[#8a7140] stroke-[1.5] fill-[#c6a15b]/10 group-hover:fill-[#c6a15b]/25 transition-all" 
-                    strokeDasharray="4 4"
-                  />
-                  <text x="126" y="198" className="font-mono-custom text-[14px] font-medium fill-[#c6a15b] text-anchor-middle">239 / 3</text>
-                  <text x="126" y="215" className="font-mono-custom text-[10.5px] fill-[#a39c8a] text-anchor-middle">851,28 m²</text>
-                </g>
-
-                {/* 239/4 */}
-                <g 
-                  onClick={() => selectParcelAndScroll('239 Ada 4 Parsel (1.010,62 m²)')}
-                  className="cursor-pointer group"
-                >
-                  <path 
-                    d="M58,258 L164,252 L122,398 Z" 
-                    className="stroke-[#c6a15b] stroke-[1.5] fill-[#c6a15b]/10 group-hover:fill-[#c6a15b]/25 transition-all" 
-                    strokeDasharray="4 4"
-                  />
-                  <text x="115" y="300" className="font-mono-custom text-[14px] font-medium fill-[#c6a15b] text-anchor-middle">239 / 4</text>
-                  <text x="115" y="317" className="font-mono-custom text-[10.5px] fill-[#a39c8a] text-anchor-middle">1.010,62 m²</text>
-                </g>
-
-                <circle cx="148" cy="18" r="3" fill="#c6a15b"/>
-                <circle cx="226" cy="72" r="3" fill="#c6a15b"/>
-                <circle cx="54" cy="102" r="3" fill="#c6a15b"/>
-                <circle cx="58" cy="258" r="3" fill="#c6a15b"/>
-                <circle cx="122" cy="398" r="3" fill="#c6a15b"/>
-              </svg>
-
-              <div className="absolute bottom-3 right-3 text-[10px] font-mono-custom text-[#a39c8a]">
-                *Parsel seçmek için tıklayın
+              <div className="absolute bottom-3 right-3 text-[10px] font-mono-custom text-[#a39c8a] bg-[#141410]/70 px-2 py-0.5 rounded-xs">
+                {heroViewMode === 'cad' ? '*Parsel seçmek için tıklayın' : '*Büyütmek için fotoğrafa tıklayın'}
               </div>
             </div>
           </div>
@@ -685,7 +725,7 @@ export default function App() {
               {/* IMAGE 1: 239 ADA · PARSEL 2–3–4 SINIRLARI */}
               <div 
                 onClick={() => openImageModal(
-                  '/public/img/1.png', 
+                  parselYakinImg || '/img/parsel-yakin.jpg', 
                   '239 ADA · PARSEL 2–3–4 SINIRLARI', 
                   '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
                 )}
@@ -693,9 +733,12 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/public/img/1.png" 
+                    src={parselYakinImg || '/img/parsel-yakin.jpg'} 
                     alt="239 ada 2, 3, 4 parsel sınırlarını gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/img/parsel-yakin.jpg';
+                    }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -713,7 +756,7 @@ export default function App() {
               {/* IMAGE 2: MASLAK SANAYİ SİTESİ'NE 1,13 KM */}
               <div 
                 onClick={() => openImageModal(
-                  '/img/2.png', 
+                  sanayiUzaklikImg || '/img/2.png', 
                   "MASLAK SANAYİ SİTESİ'NE 1,13 KM", 
                   "Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü"
                 )}
@@ -721,9 +764,12 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/img/sanayi-uzaklik.jpg" 
+                    src={sanayiUzaklikImg || '/img/2.png'} 
                     alt="Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = '/img/2.png';
+                    }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
                   />
                   <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
@@ -797,7 +843,7 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <Phone size={16} className="text-[#c6a15b]" />
                   <span className="font-mono-custom text-xs text-[#c6a15b]">TEL</span>
-                  <a href="tel:05322124270" className="hover:text-[#ede7d6]">05322124270</a>
+                  <a href="tel:03125550412" className="hover:text-[#ede7d6]">0312 555 04 12</a>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin size={16} className="text-[#c6a15b] shrink-0 mt-0.5" />
