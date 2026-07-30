@@ -284,7 +284,7 @@ export default function App() {
                   )}
                 >
                   <img 
-                    src="/1k.png" 
+                    src="/1.png" 
                     alt="239 Ada 2, 3, 4 Parsel Sınırları Uydu Fotoğrafı" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
@@ -739,7 +739,7 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/1k.png" 
+                    src="/1.png" 
                     alt="239 ada 2, 3, 4 parsel sınırlarını gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
@@ -774,14 +774,14 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/2k.png" 
+                    src="/2.png" 
                     alt="Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
-                        target.src = '/img/2k.png';
+                        target.src = '/img/2.png';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
