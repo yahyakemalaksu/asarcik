@@ -274,20 +274,19 @@ export default function App() {
                 <div 
                   className="w-full h-full relative cursor-pointer overflow-hidden rounded-xs animate-fadeIn"
                   onClick={() => openImageModal(
-                    '/img/1.png', 
+                    '/1.png', 
                     '239 ADA · PARSEL 2–3–4 SINIRLARI', 
                     '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
                   )}
                 >
                   <img 
-                    src="/img/1.png" 
+                    src="/1.png" 
                     alt="239 Ada 2, 3, 4 Parsel Sınırları Uydu Fotoğrafı" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      if (target.src.endsWith('/img/1.png')) {
-                        target.src = '/img/1.png';
-                      } else if (target.src.endsWith('/img/1.png')) {
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
                         target.src = '/img/1.png';
                       }
                     }}
@@ -741,10 +740,9 @@ export default function App() {
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      if (target.src.endsWith('/1.png')) {
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
                         target.src = '/img/1.png';
-                      } else if (target.src.endsWith('/img/1.png')) {
-                        target.src = '/img/parsel-yakin.jpg';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
@@ -764,7 +762,7 @@ export default function App() {
               {/* IMAGE 2: MASLAK SANAYİ SİTESİ'NE 1,13 KM */}
               <div 
                 onClick={() => openImageModal(
-                  '/img/2.png', 
+                  '/2.png', 
                   "MASLAK SANAYİ SİTESİ'NE 1,13 KM", 
                   "Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü"
                 )}
@@ -772,14 +770,13 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/img/2.png" 
+                    src="/2.png" 
                     alt="Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      if (target.src.endsWith('/img/2.png')) {
-                        target.src = '/img/2.png';
-                      } else if (target.src.endsWith('/img/2.png')) {
+                      if (!target.dataset.triedFallback) {
+                        target.dataset.triedFallback = 'true';
                         target.src = '/img/2.png';
                       }
                     }}
@@ -856,7 +853,7 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <Phone size={16} className="text-[#c6a15b]" />
                   <span className="font-mono-custom text-xs text-[#c6a15b]">TEL</span>
-                  <a href="tel:05322124270" className="hover:text-[#ede7d6]">0532 212 42 70</a>
+                  <a href="tel:03125550412" className="hover:text-[#ede7d6]">0312 555 04 12</a>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin size={16} className="text-[#c6a15b] shrink-0 mt-0.5" />
