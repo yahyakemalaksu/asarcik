@@ -1040,7 +1040,7 @@ export default function App() {
                 <div className="flex items-center gap-3">
                   <Phone size={16} className="text-[#c6a15b]" />
                   <span className="font-mono-custom text-xs text-[#c6a15b]">TEL</span>
-                  <a href="tel:03125550412" className="hover:text-[#ede7d6]">0312 555 04 12</a>
+                  <a href="tel:05322124270" className="hover:text-[#ede7d6]">0532 212 42 70</a>
                 </div>
                 <div className="flex items-start gap-3">
                   <MapPin size={16} className="text-[#c6a15b] shrink-0 mt-0.5" />
