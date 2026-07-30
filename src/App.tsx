@@ -284,7 +284,7 @@ export default function App() {
                   )}
                 >
                   <img 
-                    src="/1.png" 
+                    src="/img/1.png" 
                     alt="239 Ada 2, 3, 4 Parsel Sınırları Uydu Fotoğrafı" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
@@ -739,7 +739,7 @@ export default function App() {
               >
                 <div className="overflow-hidden relative">
                   <img 
-                    src="/1.png" 
+                    src="/img/1.png" 
                     alt="239 ada 2, 3, 4 parsel sınırlarını gösteren uydu görüntüsü" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
