@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import img1 from './assets/img/1.png';
+import img2 from './assets/img/2.png';
 import { 
   MapPin, 
   Phone, 
