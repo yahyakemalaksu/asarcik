@@ -781,7 +781,7 @@ export default function App() {
                       const target = e.target as HTMLImageElement;
                       if (!target.dataset.triedFallback) {
                         target.dataset.triedFallback = 'true';
-                        target.src = '/img/2.png';
+                        target.src = '/img/2k.png';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
