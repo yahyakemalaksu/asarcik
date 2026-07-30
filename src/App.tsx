@@ -4,6 +4,16 @@ import img2 from './assets/img/2.png';
 import img3 from './assets/img/1k.png';
 import img4 from './assets/img/2k.png';
 import img5 from './assets/img/1b.png';
+import k1 from './img/k1.PNG';
+import k2 from './img/k2.PNG';
+import k3 from './img/k3.PNG';
+import k4 from './img/k4.PNG';
+import k5 from './img/k5.PNG';
+import k6 from './img/k6.PNG';
+import k7 from './img/k7.PNG';
+import k8 from './img/k8.PNG';
+import k9 from './img/k9.PNG';
+import k10 from './img/k10.PNG';
 import { 
   MapPin, 
   Phone, 
@@ -798,6 +808,78 @@ export default function App() {
                   <ExternalLink size={14} />
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* K1 - K10 CADASTRE & PARCEL DETAIL GALLERY */}
+          <div className="mt-16">
+            <div className="mb-6 flex flex-wrap items-center justify-between gap-2">
+              <div>
+                <h3 className="font-serif-custom text-xl text-[#ede7d6] flex items-center gap-2">
+                  <TreePine size={18} className="text-[#c6a15b]" />
+                  239 Ada Detaylı Kadastro Görselleri (k1 – k10)
+                </h3>
+                <p className="text-xs text-[#a39c8a] mt-1">
+                  Parsellere ait tüm detaylı kadastro paftaları, uydu çizimleri ve saha fotoğrafları (src/img/k1.PNG – k10.PNG)
+                </p>
+              </div>
+              <span className="font-mono-custom text-xs text-[#a39c8a]">
+                *Detay için görsele tıklayın
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 reveal">
+              {[
+                { id: 'k1', src: k1, fallback: '/img/k1.PNG', name: 'k1.PNG', title: '239 ADA · k1 Kadastro Görünümü' },
+                { id: 'k2', src: k2, fallback: '/img/k2.PNG', name: 'k2.PNG', title: '239 ADA · k2 Kadastro Görünümü' },
+                { id: 'k3', src: k3, fallback: '/img/k3.PNG', name: 'k3.PNG', title: '239 ADA · k3 Kadastro Görünümü' },
+                { id: 'k4', src: k4, fallback: '/img/k4.PNG', name: 'k4.PNG', title: '239 ADA · k4 Kadastro Görünümü' },
+                { id: 'k5', src: k5, fallback: '/img/k5.PNG', name: 'k5.PNG', title: '239 ADA · k5 Kadastro Görünümü' },
+                { id: 'k6', src: k6, fallback: '/img/k6.PNG', name: 'k6.PNG', title: '239 ADA · k6 Kadastro Görünümü' },
+                { id: 'k7', src: k7, fallback: '/img/k7.PNG', name: 'k7.PNG', title: '239 ADA · k7 Kadastro Görünümü' },
+                { id: 'k8', src: k8, fallback: '/img/k8.PNG', name: 'k8.PNG', title: '239 ADA · k8 Kadastro Görünümü' },
+                { id: 'k9', src: k9, fallback: '/img/k9.PNG', name: 'k9.PNG', title: '239 ADA · k9 Kadastro Görünümü' },
+                { id: 'k10', src: k10, fallback: '/img/k10.PNG', name: 'k10.PNG', title: '239 ADA · k10 Kadastro Görünümü' },
+              ].map((item) => (
+                <div
+                  key={item.id}
+                  onClick={() => openImageModal(
+                    item.src || item.fallback,
+                    item.title,
+                    `239 Ada ${item.name} kadastro ve arazi detay fotoğrafı`
+                  )}
+                  className="bg-[#1b1b15] border border-[#c6a15b]/20 hover:border-[#c6a15b] rounded-xs overflow-hidden cursor-pointer group transition-all duration-300 relative flex flex-col"
+                >
+                  <div className="h-40 relative overflow-hidden bg-[#141410]">
+                    <img
+                      src={item.src || item.fallback}
+                      alt={item.title}
+                      referrerPolicy="no-referrer"
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        if (!target.dataset.triedFallback) {
+                          target.dataset.triedFallback = 'true';
+                          target.src = item.fallback;
+                        } else if (!target.dataset.triedRootFallback) {
+                          target.dataset.triedRootFallback = 'true';
+                          target.src = `/${item.name}`;
+                        }
+                      }}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-108"
+                    />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="bg-[#141410]/90 text-[#c6a15b] p-2 border border-[#c6a15b] rounded-xs font-mono-custom text-xs flex items-center gap-1.5">
+                        <Maximize2 size={12} /> Büyüt
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-2.5 bg-[#1b1b15] border-t border-[#c6a15b]/15 flex items-center justify-between text-xs">
+                    <span className="font-mono-custom text-[11px] text-[#c6a15b] font-semibold">{item.name}</span>
+                    <ExternalLink size={12} className="text-[#a39c8a] group-hover:text-[#c6a15b] transition-colors" />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
