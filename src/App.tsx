@@ -274,21 +274,21 @@ export default function App() {
                 <div 
                   className="w-full h-full relative cursor-pointer overflow-hidden rounded-xs animate-fadeIn"
                   onClick={() => openImageModal(
-                    'public/img/1.png', 
+                    'img/1.png', 
                     '239 ADA · PARSEL 2–3–4 SINIRLARI', 
                     '239 ada 2, 3, 4 parsel sınırlarını gösteren detaylı uydu görüntüsü'
                   )}
                 >
                   <img 
-                    src="public/img/1.png" 
+                    src="img/1.png" 
                     alt="239 Ada 2, 3, 4 Parsel Sınırları Uydu Fotoğrafı" 
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      if (target.src.endsWith('public/img/1.png')) {
-                        target.src = 'public/img/1.png';
+                      if (target.src.endsWith('img/1.png')) {
+                        target.src = 'img/1.png';
                       } else if (target.src.endsWith('/img/1.png')) {
-                        target.src = 'public/img/1.png';
+                        target.src = 'img/1.png';
                       }
                     }}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
@@ -764,7 +764,7 @@ export default function App() {
               {/* IMAGE 2: MASLAK SANAYİ SİTESİ'NE 1,13 KM */}
               <div 
                 onClick={() => openImageModal(
-                  'public/img/2.png', 
+                  'img/2.png', 
                   "MASLAK SANAYİ SİTESİ'NE 1,13 KM", 
                   "Parselden Maslak Sanayi Sitesi'ne olan mesafeyi gösteren uydu görüntüsü"
                 )}
@@ -777,10 +777,10 @@ export default function App() {
                     referrerPolicy="no-referrer"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;
-                      if (target.src.endsWith('public/img/2.png')) {
-                        target.src = 'public/img/2.png';
-                      } else if (target.src.endsWith('public/img/2.png')) {
-                        target.src = 'public/img/2.png';
+                      if (target.src.endsWith('img/2.png')) {
+                        target.src = 'img/2.png';
+                      } else if (target.src.endsWith('img/2.png')) {
+                        target.src = 'img/2.png';
                       }
                     }}
                     className="w-full h-[280px] sm:h-[320px] object-cover"
