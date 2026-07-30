@@ -1,4 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import img1 from './assets/img/1.png'; 
+import img2 from './assets/img/2.png'; 
+import img3 from './assets/img/1k.png'; 
+import img4 from './assets/img/2k.png'; 
+import img5 from './assets/img/1b.png';
 import k1 from './img/k1.PNG';
 import k2 from './img/k2.PNG';
 import k3 from './img/k3.PNG';
